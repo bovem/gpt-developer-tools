@@ -102,3 +102,5 @@ export OPENAI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```bash
 gdt explain --path ./gpt_developer_tools.py 
 ```
+
+Follow OpenAI's [API Documentation](https://beta.openai.com/docs/api-reference/completions/create) for details related to models and predictions.
