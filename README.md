@@ -23,7 +23,7 @@ export OPENAI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 3. Run `gdt` command with arguments and options.
 ```bash
-gdt explain --path ./gpt_cli_debugger.py 
+gdt explain --path ./gpt_developer_tools.py 
 ```
 
 ## Usage
@@ -59,7 +59,7 @@ gdt create -pm "Write a merge sort program in Java" -w --path ./sorting.java
 
 ## Sample Output
 ```bash
-Input Script: ./gpt_cli_debugger.py
+Input Script: ./gpt_developer_tools.py
 
 ChatGPT's Response:
 
@@ -100,5 +100,5 @@ export OPENAI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 5. Run `gdt` utility with target script passed as path
 ```bash
-gdt explain --path ./gpt_cli_debugger.py 
+gdt explain --path ./gpt_developer_tools.py 
 ```
