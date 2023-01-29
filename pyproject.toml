@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=64.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ['setuptools>=42']
+build-backend = 'setuptools.build_meta'
 
 [project]
 name = "gpt_cli_debugger"
@@ -10,4 +10,4 @@ readme = "README.md"
 authors = [{ name = "Avnish", email = "avnishnish07@gmail.com" }]
 
 [project.scripts]
-gpt_cli_debugger = "gpt_cli_debugger.__main__:main"
+gcd = "gpt_cli_debugger.__main__:main"

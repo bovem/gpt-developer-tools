@@ -1,0 +1,134 @@
+class Node:
+    def __init__(self, value=None, next=None):
+        self.value = value
+        self.next = next
+
+class LinkedList:
+    def __init__(self, head=None):
+        self.head = head
+    
+    def insert(self, value):
+        if self.head==None:
+            self.head=Node(value)
+        else:
+            temp = self.head
+            while(temp.next!=None):
+                temp=temp.next
+            temp.next = Node(value)
+    
+    def show(self):
+        temp = self.head
+        while(temp!=None):
+            print(temp.value, end="->")
+            temp = temp.next
+        print()
+
+def same_end_val(linked_list1, linked_list2):
+    temp1 = linked_list1.head
+    temp2 = linked_list2.head
+
+    while(temp1.next!=None):
+        temp1 = temp1.next
+    while(temp2.next!=None):
+        temp2 = temp2.next
+    
+    return temp1==temp2
+
+def reverse(linked_list):
+    temp = linked_list.head
+    new_ll = LinkedList()
+    while(temp!=None):
+        new_node = Node(temp.value)
+        new_node.next = new_ll.head
+        new_ll.head = new_node
+        temp=temp.next
+    return new_ll
+        
+# def intersection(linked_list1, linked_list2):
+#     if(same_end_val(linked_list1, linked_list2)): #O(M)
+#         r_ll1 = reverse(linked_list1) #O(M)
+#         r_ll2 = reverse(linked_list2) #O(N)
+#         temp_rll1 = r_ll1.head
+#         temp_rll2 = r_ll2.head
+#         equal = False
+#         i=0
+#         intersecting_node=Node()
+#         while(temp_rll1!=None and temp_rll2!=None): #O(M)
+#             if temp_rll1.value==temp_rll2.value:
+#                 intersecting_node=temp_rll1
+#                 i+=1
+#                 equal = True
+#             else:
+#                 break
+#             temp_rll1 = temp_rll1.next
+#             temp_rll2 = temp_rll2.next
+#         return equal, intersecting_node
+#     else:
+#         return False, Node()
+
+def length(linked_list):
+    temp=linked_list.head
+    i=1
+    while(temp.next!=None):
+        temp = temp.next
+        i+=1
+    return i
+
+def intersection(linked_list1, linked_list2):
+    intersecting=False
+    intersecting_node=Node()
+
+    if same_end_val(linked_list1, linked_list2):
+        len_ll1 = length(linked_list1)
+        len_ll2 = length(linked_list2)
+        length_diff = abs(len_ll1-len_ll2)
+
+        if len_ll1>len_ll2:
+            longer_list = linked_list1
+            shorter_list = linked_list2
+        else:
+            longer_list = linked_list2
+            shorter_list = linked_list1
+        
+        temp1 = longer_list.head
+        temp2 = shorter_list.head
+        while(length_diff>0):
+            temp1 = temp1.next
+            length_diff-=1
+        
+        while(temp1!=None):
+            if temp1==temp2:
+                intersecting=True
+                intersecting_node=temp1
+                break
+            temp1=temp1.next
+            temp2=temp2.next
+    
+    return intersecting, intersecting_node
+    
+
+
+
+inode = Node(4, Node(5))
+
+ll = LinkedList()
+ll.insert(1)
+ll.head.next = inode
+ll.show()
+print("Length: {}".format(length(ll)))
+
+ll2 = LinkedList()
+ll2.insert(2)
+ll2.insert(3)
+ll2.head.next.next = inode
+ll2.show()
+print("Length: {}".format(length(ll2)))
+
+# ll2 = LinkedList()
+# ll2.insert(2)
+# ll2.insert(4)
+# ll2.insert(5)
+# ll2.show()
+
+intersecting, intersecting_node = intersection(ll, ll2)
+print("Linked Lists are intersecting: {} at node: {}".format(intersecting, intersecting_node.value))
