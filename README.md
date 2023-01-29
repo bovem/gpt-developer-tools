@@ -38,5 +38,12 @@ ChatGPT's Response:
 if __name__ == '__main__':
     cli()
 
-This script is used to debug or explain a script using ChatGPT. The script uses the click library to create a command line interface and import the requester and utils modules from the src package. The cli() function is used to create the command line group. The debug() and explain() functions are used to debug or explain a script respectively. Both functions take in the path to the script, the starting and ending line of the script, the model engine, max tokens, number of outputs, temperature and prompt message to be used by ChatGPT. The open_ai_api_key is retrieved from the environment variable OPENAI_API_KEY and is used to send the request to ChatGPT. Finally, the cli() function is called to execute the command line interface.
+This script is used to debug or explain a script using ChatGPT. The script uses the click library 
+to create a command line interface and import the requester and utils modules from the src package. 
+The cli() function is used to create the command line group. The debug() and explain() functions are 
+used to debug or explain a script respectively. Both functions take in the path to the script, the 
+starting and ending line of the script, the model engine, max tokens, number of outputs, temperature 
+and prompt message to be used by ChatGPT. The open_ai_api_key is retrieved from the environment 
+variable OPENAI_API_KEY and is used to send the request to ChatGPT. Finally, the cli() function is 
+called to execute the command line interface.
 ```
