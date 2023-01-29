@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpt_cli_debugger"
+version = "0.0.1"
+description = "A CLI debugging tool that uses ChatGPT to find bugs in the script"
+readme = "README.md"
+authors = [{ name = "Avnish", email = "avnishnish07@gmail.com" }]
+
+[project.scripts]
+gpt_cli_debugger = "gpt_cli_debugger.__main__:main"
