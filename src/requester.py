@@ -32,3 +32,31 @@ def send_gpt_request(script_path, line_start, line_end, prompt, open_ai_api_key,
         response = completion.choices[0].text
         print("ChatGPT's Response:")
         print(response)
+
+def send_gpt_request_create(prompt, write_flag, write_path, open_ai_api_key, model_engine, max_tokens, n, temperature):
+
+    print("\nInput prompt: {}".format(prompt))
+    print()
+
+    openai.api_key = open_ai_api_key
+
+    # Generate a response
+    completion = openai.Completion.create(
+        engine=model_engine,
+        prompt=prompt,
+        max_tokens=max_tokens,
+        n=n,
+        stop=None,
+        temperature=temperature,
+    )
+
+    response = completion.choices[0].text
+
+    if write_flag==True:
+        script = open(write_path, "w")
+        script.write(response)
+        script.close()
+        print("Program written to file: {}".format(write_path))
+    else:
+        print("ChatGPT's Response:")
+        print(response)
